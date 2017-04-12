@@ -47,3 +47,15 @@ def camel_to_snake(column_name):
     """
     s1 = re.sub('(.)([A-Z][a-z]+)', r'\1_\2', column_name)
     return re.sub('([a-z0-9])([A-Z])', r'\1_\2', s1).lower()
+
+
+def print_null_freq(df):
+    """
+    for a given DataFrame, calculates how many values for 
+    each variable is null and prints the resulting table to stdout
+    Code from: https://github.com/yhat/DataGotham2013/blob/master/notebooks/3%20-%20Importing%20Data.ipynb
+    """
+    df_lng = pd.melt(df)
+    null_variables = df_lng.value.isnull()
+    return pd.crosstab(df_lng.variable, null_variables)
+print_null_freq(df)
