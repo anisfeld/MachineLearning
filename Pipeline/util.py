@@ -85,12 +85,3 @@ def map_camel_to_snake(s):
     '''
     return s.map(camel_to_snake)
 
-def print_null_freq(df):
-    """
-    for a given DataFrame, calculates how many values for 
-    each variable is null and prints the resulting table to stdout
-    Code from: https://github.com/yhat/DataGotham2013/blob/master/notebooks/3%20-%20Importing%20Data.ipynb
-    """
-    df_lng = pd.melt(df)
-    null_variables = df_lng.value.isnull()
-    return pd.crosstab(df_lng.variable, null_variables)

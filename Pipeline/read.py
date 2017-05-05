@@ -4,10 +4,14 @@ import re
 
 def read_csv(file, parse_zipcodes=None, **kwargs):
 	'''
+	open a csv into dataFrame.
+	
 
+	options include built in pandas options (see documentation use **kwargs)
 	'''
 	### parse dates ... 
-	# parse zipcodes ... future question 'object' or 'categorical'
+	# if we have zipcodes or other administrative numbers that we want to use as strings
+	# parse them.  future question 'object' or 'categorical' ?
 	if isinstance(parse_zipcodes, list):
 		dtype = {zc: 'str' for zc in parse_zipcodes}
 		if kwargs.get("dtype", False):

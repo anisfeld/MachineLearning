@@ -39,3 +39,8 @@ def plot_confusion_matrix(cm, classes,
 
 def get_accuracy(cm):
     return (cm[0,0] + cm[1,1])/sum(sum(cm))
+def get_recall(cm):
+    return cm[0,0]/(cm[0,0] + cm[0,1])
+
+def get_precision(cm):
+    return cm[0,0]/(cm[0,0] + cm[1,0])
